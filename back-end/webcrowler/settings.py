@@ -18,7 +18,7 @@ ALLOWED_HOSTS = [
     'web-scrapper-production-916c.up.railway.app',
     'localhost',
     '127.0.0.1',
-]    # settings.py
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -52,12 +52,12 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://wired-scraper.vercel.app",
-    "http://localhost:3000"
+'https://wired-scraper.vercel.app/',
+"http://localhost:3000"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = True 
+# CORS_ALLOW_ALL_ORIGINS = True 
 
 CORS_ALLOW_HEADERS = [
     'accept',
