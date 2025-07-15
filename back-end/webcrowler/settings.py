@@ -46,12 +46,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://wired-scraper.vercel.app", 
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-
 CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'webcrowler.urls'
