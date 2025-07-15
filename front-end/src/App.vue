@@ -1,12 +1,28 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import axios from "axios";
 import jsonData from "../../wired_data.json";
 
-import axios from "axios";
 
 const items = ref([]);
 
 items.value = jsonData;
+
+const uniqueSortedItems = computed(() => {
+  const uniqueItems = new Map();
+  
+  items.value.forEach(item => {
+    if (!uniqueItems.has(item.title)) {
+      uniqueItems.set(item.title, item);
+    }
+  });
+  
+  return Array.from(uniqueItems.values()).sort((a, b) => {
+    const dateA = new Date(a.date_of_publish);
+    const dateB = new Date(b.date_of_publish);
+    return dateB - dateA;
+  });
+});
 // const next = ref("");
 // const previous = ref("");
 // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/";
