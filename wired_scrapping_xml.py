@@ -17,8 +17,6 @@ def get_xml_file(url=SITEMAP_URL, COUNT=COUNT):
         response = requests.get(url).text
     except Exception as e:
         print(e)
-        with open(f'wired_data.json', "w") as f:
-            json.dump(all_data, f)
 
     COUNT += 1
     while not response:
