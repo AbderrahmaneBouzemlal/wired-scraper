@@ -43,10 +43,6 @@ items.value = jsonData;
       </li>
     </ul>
   </div>
-  <div class="pagination-controls">
-    <button @click="goToPage(previous)" :disabled="!previous">Previous</button>
-    <button @click="goToPage(next)" :disabled="!next">Next</button>
-  </div>
 </template>
 
 <style scoped></style>
