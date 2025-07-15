@@ -21,14 +21,6 @@ export default defineConfig({
         target: "https://web-scrapper-production-916c.up.railway.app",
         changeOrigin: true,
         secure: true,
-        configure: (proxy, options) => {
-          proxy.on("error", (err, req, res) => {
-            console.log("proxy error", err);
-          });
-          proxy.on("proxyReq", (proxyReq, req, res) => {
-            console.log("Sending Request:", req.method, req.url);
-          });
-        },
       },
     },
   },

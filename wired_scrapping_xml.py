@@ -5,7 +5,7 @@ import json
 import time
 import requests
 
-BACK_END = 'http://localhost:8000/api/create'
+BACK_END = 'https://web-scrapper-production-916c.up.railway.app/api/create'
 BASE_URL = 'https://www.wired.com'
 SITEMAP_URL = f'https://www.wired.com/sitemap.xml'
 DATE_LIMIT = date(year=2022, month=1, day=1)
