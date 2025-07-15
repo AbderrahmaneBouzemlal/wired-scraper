@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/wired-scraper/front-end/assets/(.*\\.js)",
+      "source": "/assets/(.*\\.js)",
       "headers": [
         {
           "key": "Content-Type",
