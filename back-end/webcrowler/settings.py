@@ -51,12 +51,12 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-'https://wired-scraper.vercel.app',
-'https://wired-scraper-git-main-abderrahmanebouzemlals-projects.vercel.app',
-'https://wired-scraper-ab3iore9z-abderrahmanebouzemlals-projects.vercel.app',
-"http://localhost:3000"
-]
+# CORS_ALLOWED_ORIGINS = [
+# 'https://wired-scraper.vercel.app',
+# 'https://wired-scraper-git-main-abderrahmanebouzemlals-projects.vercel.app',
+# 'https://wired-scraper-ab3iore9z-abderrahmanebouzemlals-projects.vercel.app',
+# "http://localhost:3000"
+# ]
 
 CORS_ALLOW_CREDENTIALS = True
 # CORS_ALLOW_ALL_ORIGINS = True 
