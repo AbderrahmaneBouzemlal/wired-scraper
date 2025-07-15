@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import jsonData from '../../wired_data.json';
+import jsonData from "../../wired_data.json";
 
 import axios from "axios";
 
@@ -18,10 +18,11 @@ async function fetchPosts(url = API_URL) {
   } catch (error) {
     console.error("Failed to fetch posts:", error);
     if (!response.data.results) {
-        items.value = jsonData
-      }
+      items.value = jsonData;
+      console.log(jsonData);
     }
   }
+}
 function goToPage(url) {
   if (url) fetchPosts(url);
 }
