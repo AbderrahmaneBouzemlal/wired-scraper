@@ -5,8 +5,7 @@ import axios from "axios";
 const items = ref([]);
 const next = ref("");
 const previous = ref("");
-const API_URL = "http://localhost:8000/api/";
-const ROOT = "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/";
 
 async function fetchPosts(url = API_URL) {
   try {
