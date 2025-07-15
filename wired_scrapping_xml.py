@@ -53,8 +53,11 @@ def process_xml(soup, all_data):
                 article['image_url'] = 'http://localhost:8000/media/default.jpeg'
                 article['date_of_publish'] = url.find('lastmod').text.split('T')[0]
                 all_data.append(article)
-                resp = send_to_backend(article)
-                if resp == 400:
+                try:
+                    resp = send_to_backend(article)
+                    if resp == 400:
+                        continue
+                except:
                     continue
                 print(f'{len(all_data) + 1}. {article["title"]} - {article["date_of_publish"]}')
     else:

@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import jsonData from '../../wired_data.json';
+
 import axios from "axios";
 
 const items = ref([]);
@@ -15,8 +17,11 @@ async function fetchPosts(url = API_URL) {
     previous.value = response.data.previous;
   } catch (error) {
     console.error("Failed to fetch posts:", error);
+    if (!response.data.results) {
+        items.value = jsonData
+      }
+    }
   }
-}
 function goToPage(url) {
   if (url) fetchPosts(url);
 }
