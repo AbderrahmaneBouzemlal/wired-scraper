@@ -37,7 +37,7 @@ items.value = jsonData;
   <div>
     <h2>Items</h2>
     <ul>
-      <li v-for="item in items" :key="item.id">
+      <li v-for="item in items" :key="item.index">
         <a :href="item.URL">{{ item.title }}</a>
         <span>{{ item.date_of_publish }}</span>
       </li>

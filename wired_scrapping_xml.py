@@ -5,7 +5,6 @@ import json
 import time
 import requests
 
-BACK_END = 'https://web-scrapper-production-916c.up.railway.app/api/create'
 BASE_URL = 'https://www.wired.com'
 SITEMAP_URL = f'https://www.wired.com/sitemap.xml'
 DATE_LIMIT = date(year=2022, month=1, day=1)
@@ -28,14 +27,6 @@ def get_xml_file(url=SITEMAP_URL, COUNT=COUNT):
     soup = BeautifulSoup(response, features='xml')
     return soup
 
-def send_to_backend(article):
-    data = json.dumps(article)
-    try:
-        headers = {"Content-Type": "application/json"}
-        resp = requests.post(BACK_END, data=data, headers=headers)
-    except Exception as e:
-        print(f'{e}')
-    return resp.status_code
 
 def process_xml(soup, all_data):
     sitemaps = soup.find_all('sitemap')
@@ -50,15 +41,8 @@ def process_xml(soup, all_data):
                 article['index'] = len(all_data) + 1
                 words = url.find('loc').text.split('/')[-2].split('-')
                 article['title'] = " ".join(words)
-                article['image_url'] = 'http://localhost:8000/media/default.jpeg'
                 article['date_of_publish'] = url.find('lastmod').text.split('T')[0]
                 all_data.append(article)
-                try:
-                    resp = send_to_backend(article)
-                    if resp == 400:
-                        continue
-                except:
-                    continue
                 print(f'{len(all_data) + 1}. {article["title"]} - {article["date_of_publish"]}')
     else:
         for sitemap in sitemaps:
